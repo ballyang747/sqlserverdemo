@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace指用户自定义的命名空间。 -->
+<mapper namespace="org.fkjava.mybatis1sb.mapper.UserMapper">
+
+  
+  <!-- MyBatis使用XML映射，只能传递一个参数，可以是对象也可以是Map -->
+  <select id="login" parameterType="org.fkjava.mybatis1sb.domain.User" 
+  resultMap="userResultMap">
+  	select * from tb_user 
+  	where loginname = #{loginname} 
+  	and password = #{password}
+  </select>
+  
+  <resultMap id="userResultMap" type="org.fkjava.mybatis1sb.domain.User">
+	  <id property="id" column="id" />
+	  <result property="loginname" column="loginname"/>
+	  <result property="password" column="password"/>
+	  <result property="username" column="username"/>
+	</resultMap>
+  
+</mapper>

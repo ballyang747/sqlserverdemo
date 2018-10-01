@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.fkjava.mybatis1sb.mapper.EquipmentDao">
+    <insert id="insertData"  parameterType="org.fkjava.mybatis1sb.domain.MeteringEquipment" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO testTable
+          (   
+            number  
+           , name  
+           , type  
+           , quantity  
+           , area  
+           , checktype  
+           , checktime  
+           , tochecktime  
+           , tousetime  
+           , remark  )
+     VALUES
+    (      
+           #{number}
+           ,#{name}
+           ,#{type}
+           ,#{quantity}
+           ,#{area}
+           ,#{checktype}
+           ,#{checktime}
+           ,#{tochecktime,}
+           ,#{tousetime}
+           ,#{remark})
+
+    
+    </insert>
+    
+<select id="findAll"  resultType="org.fkjava.mybatis1sb.domain.MeteringEquipment">
+      SELECT * FROM testTable
+    </select>
+    
+
+	
+    
+</mapper>
