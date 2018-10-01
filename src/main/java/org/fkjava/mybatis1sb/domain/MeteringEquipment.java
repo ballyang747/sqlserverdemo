@@ -2,6 +2,10 @@ package org.fkjava.mybatis1sb.domain;
 
 import java.util.Date;
 
+import org.fkjava.mybatis1sb.util.DataTimeJsonSerializer;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 public class MeteringEquipment {
 	
 	
@@ -12,8 +16,11 @@ public class MeteringEquipment {
 	public Integer quantity;
 	public String area;
 	public String checktype;
+	@JsonSerialize(using=DataTimeJsonSerializer.class)
 	public Date checktime;
+	@JsonSerialize(using=DataTimeJsonSerializer.class)
 	public Date tochecktime;
+	@JsonSerialize(using=DataTimeJsonSerializer.class)
 	public Date tousetime;
 	public String remark;
 	

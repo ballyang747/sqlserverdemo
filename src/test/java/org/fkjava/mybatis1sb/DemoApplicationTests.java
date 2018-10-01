@@ -7,6 +7,7 @@ import org.fkjava.mybatis1sb.domain.Book;
 import org.fkjava.mybatis1sb.domain.MeteringEquipment;
 import org.fkjava.mybatis1sb.mapper.BookMapper;
 import org.fkjava.mybatis1sb.mapper.EquipmentDao;
+import org.fkjava.mybatis1sb.util.DateRandom;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -51,6 +52,7 @@ public class DemoApplicationTests {
 		
 		try {
 			MeteringEquipment me1 = new MeteringEquipment();
+			DateRandom dr = new DateRandom();
 			
 		      me1.setArea("广州");
 		      me1.setRemark("123");
@@ -59,11 +61,11 @@ public class DemoApplicationTests {
 		      me1.setQuantity(123);
 		      me1.setType("123");
 		      me1.setChecktype("123");
-		      me1.setChecktime(new Date());
+		      me1.setChecktime(dr.getRanDate("2018-10-01", "2018-10-30"));
 		    
 		      
-		      me1.setTochecktime(new Date());
-		      me1.setTousetime(new Date());
+		      me1.setTochecktime(dr.getRanDate("2018-10-01", "2018-10-30"));
+		      me1.setTousetime(dr.getRanDate("2018-10-01", "2018-10-30"));
 		     
 		      
 		    
