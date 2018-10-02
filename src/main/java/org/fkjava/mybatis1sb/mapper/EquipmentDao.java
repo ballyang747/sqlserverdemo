@@ -7,7 +7,7 @@ import org.fkjava.mybatis1sb.domain.MeteringEquipment;
 
 public interface EquipmentDao {
 	
-	void insertData(MeteringEquipment me);
+	void insertData(List<MeteringEquipment> me);
 	
  	List<MeteringEquipment> findAll();
 	

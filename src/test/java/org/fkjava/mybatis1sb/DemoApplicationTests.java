@@ -1,5 +1,6 @@
 package org.fkjava.mybatis1sb;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
@@ -56,10 +57,12 @@ public class DemoApplicationTests {
 		
 		try {
 			
-			MeteringEquipment me1 = new MeteringEquipment();
-			DateRandom dr = new DateRandom();
 			
-			for (int i = 0; i < 1000; i++) {
+			DateRandom dr = new DateRandom();
+			List<MeteringEquipment> list1 = new ArrayList<MeteringEquipment>();
+			
+			for (int i = 0; i < 200; i++) {
+				MeteringEquipment me1 = new MeteringEquipment();
 				 String randomCity = randomData.getRandomCity();
 					
 			      me1.setArea(randomCity);
@@ -67,17 +70,15 @@ public class DemoApplicationTests {
 			      me1.setName("123");
 			      me1.setNumber(randomData.getRandomNum());
 			      me1.setQuantity(randomData.getRandomNum());
-			      me1.setType("123");
+			      me1.setType(randomData.getRandomType());
 			      me1.setChecktype("123");
 			      me1.setChecktime(dr.getRanDate("2018-10-01", "2018-10-30"));
 			      me1.setTochecktime(dr.getRanDate("2018-10-01", "2018-10-30"));
 			      me1.setTousetime(dr.getRanDate("2018-10-01", "2018-10-30"));
-			     
-			      
-			    
-			      equipmentDao.insertData(me1);
+			      list1.add(me1);
+			   
 			}
-		   
+			equipmentDao.insertData(list1);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
